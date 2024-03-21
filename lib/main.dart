@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:my_classeviva/app.dart';
+import "package:flutter/material.dart";
+import "widgets/login.dart";
 
 void main() {
   runApp(const MyApp());
@@ -12,9 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Magico MOndo DI ZMAPPA',
+      title: "Magico MOndo DI ZMAPPA",
       theme: ThemeData.dark(),
-      home: const HomePage(),
+      home: const LoginPage(),
     );
   }
 }
