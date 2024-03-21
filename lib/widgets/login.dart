@@ -4,7 +4,7 @@ import "package:my_classeviva/cvv/exceptions/http_request_exception.dart";
 import "package:my_classeviva/cvv/exceptions/wrong_credentials_exception.dart";
 import "package:my_classeviva/cvv/models/auth_response_model.dart";
 import "package:my_classeviva/cvv/models/profile.dart";
-import "package:my_classeviva/widgets/main.dart";
+import "package:my_classeviva/widgets/main_page.dart";
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
