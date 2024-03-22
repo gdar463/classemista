@@ -6,4 +6,4 @@ How to make yourself suffer, just for a few progess indicators not setup correct
 
 - [ ] Cache
 - [ ] All routes maybe
-- [ ] Background grades and noticeboard notis
+- [ ] Background grades and noticeboard notifications
