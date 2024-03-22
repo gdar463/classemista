@@ -1,4 +1,4 @@
-import "package:my_classeviva/cvv/models/auth_response_model.dart";
+import "package:classemista/cvv/models/auth_response_model.dart";
 
 class Profile {
   final String? token;

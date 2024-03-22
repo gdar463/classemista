@@ -1,10 +1,10 @@
 import "dart:convert";
 
 import "package:http/http.dart" as http;
-import "package:my_classeviva/cvv/base.dart";
-import "package:my_classeviva/cvv/exceptions/http_request_exception.dart";
-import "package:my_classeviva/cvv/exceptions/wrong_credentials_exception.dart";
-import "package:my_classeviva/cvv/models/auth_response_model.dart";
+import "package:classemista/cvv/base.dart";
+import "package:classemista/cvv/exceptions/http_request_exception.dart";
+import "package:classemista/cvv/exceptions/wrong_credentials_exception.dart";
+import "package:classemista/cvv/models/auth_response_model.dart";
 
 Future<AuthResponseModel> login(String? username, String? password) async {
   const String url = Base.baseUrl + Endpoints.loginPoint;

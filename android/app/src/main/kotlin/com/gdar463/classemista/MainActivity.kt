@@ -1,4 +1,4 @@
-package com.gdar463.my_classeviva
+package com.gdar463.classemista
 
 import io.flutter.embedding.android.FlutterActivity
 

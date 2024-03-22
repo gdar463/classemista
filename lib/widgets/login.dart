@@ -1,10 +1,10 @@
 import "package:flutter/material.dart";
-import "package:my_classeviva/cvv/auth.dart";
-import "package:my_classeviva/cvv/exceptions/http_request_exception.dart";
-import "package:my_classeviva/cvv/exceptions/wrong_credentials_exception.dart";
-import "package:my_classeviva/cvv/models/auth_response_model.dart";
-import "package:my_classeviva/cvv/models/profile.dart";
-import "package:my_classeviva/widgets/main_page.dart";
+import "package:classemista/cvv/auth.dart";
+import "package:classemista/cvv/exceptions/http_request_exception.dart";
+import "package:classemista/cvv/exceptions/wrong_credentials_exception.dart";
+import "package:classemista/cvv/models/auth_response_model.dart";
+import "package:classemista/cvv/models/profile.dart";
+import "package:classemista/widgets/main_page.dart";
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

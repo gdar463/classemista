@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.gdar463.my_classeviva">
+    package="com.gdar463.classemista">
     <application
-        android:label="my_classeviva"
+        android:label="classemista"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

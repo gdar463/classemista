@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_classeviva/cvv/models/profile.dart';
+import 'package:classemista/cvv/models/profile.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key, required this.profile});
