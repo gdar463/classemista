@@ -13,8 +13,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Magico MOndo DI ZMAPPA",
-      theme: ThemeData.dark(),
+      themeMode: ThemeMode.system,
+      theme: ThemeData(brightness: Brightness.light),
+      darkTheme: ThemeData(brightness: Brightness.dark),
       home: const LoginPage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
