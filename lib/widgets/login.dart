@@ -47,15 +47,6 @@ class _LoginPageState extends State<LoginPage> {
 
     profile = Profile.fromAuth(auth);
 
-    var firstName = profile?.firstName;
-    firstName ??= "null";
-
-    var lastName = profile?.lastName;
-    lastName ??= "null";
-
-    var ident = profile?.ident;
-    ident ??= "ident";
-
     loading = false;
     loggedIn = true;
 
