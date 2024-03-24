@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import "package:classemista/cvv/auth.dart";
+import "package:classemista/cvv/features/auth.dart";
 import "package:classemista/cvv/exceptions/http_request_exception.dart";
 import "package:classemista/cvv/exceptions/wrong_credentials_exception.dart";
 import "package:classemista/cvv/models/auth_response_model.dart";
