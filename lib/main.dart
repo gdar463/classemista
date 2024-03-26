@@ -53,7 +53,6 @@ class ClassemistaApp extends StatelessWidget {
 
   final Widget start;
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
