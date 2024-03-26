@@ -34,8 +34,8 @@ Future<LessonsResponseModel> getLessons(
     Base.baseUrl + Endpoints.lessonsPoint,
     Map.fromIterables(
       {
-        "ident",
-        "day",
+        "{ident}",
+        "{day}",
       },
       {
         profile.ident.substring(1),
