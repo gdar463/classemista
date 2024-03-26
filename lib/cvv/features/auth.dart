@@ -19,12 +19,15 @@
 
 import "dart:convert";
 
-import "package:http/http.dart" as http;
-import "package:flutter_secure_storage/flutter_secure_storage.dart";
 import "package:classemista/cvv/base.dart";
 import "package:classemista/cvv/exceptions/http_request_exception.dart";
 import "package:classemista/cvv/exceptions/wrong_credentials_exception.dart";
 import "package:classemista/cvv/models/auth_response_model.dart";
+import "package:classemista/cvv/models/profile_model.dart";
+import "package:classemista/widgets/main_page.dart";
+import "package:flutter/material.dart";
+import "package:flutter_secure_storage/flutter_secure_storage.dart";
+import "package:http/http.dart" as http;
 
 const String url = Base.baseUrl + Endpoints.loginPoint;
 const Map<String, String> headers = {
@@ -54,7 +57,7 @@ Future<AuthResponseModel> login(String? username, String? password) async {
       jsonDecode(response.body) as Map<String, dynamic>);
 }
 
-Future<AuthResponseModel> refresh() async {
+void refresh(BuildContext context) async {
   const FlutterSecureStorage storage = FlutterSecureStorage();
   String? username = await storage.read(key: "uid");
   String? password = await storage.read(key: "pass");
@@ -78,6 +81,12 @@ Future<AuthResponseModel> refresh() async {
       throw HttpRequestException(url: url, statusCode: response.statusCode);
   }
 
-  return AuthResponseModel.fromJson(
-      jsonDecode(response.body) as Map<String, dynamic>);
+  if (context.mounted) {
+    Navigator.pushReplacement(
+        context,
+        MainPage(
+                profile: ProfileModel.fromAuth(AuthResponseModel.fromJson(
+                    jsonDecode(response.body) as Map<String, dynamic>)))
+            as Route<Object?>);
+  }
 }

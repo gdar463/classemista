@@ -34,7 +34,8 @@ void main() async {
     try {
       start = MainPage(
         profile: ProfileModel.fromAuth(
-          await refresh(),
+          await login(
+              await storage.read(key: "uid"), await storage.read(key: "pass")),
         ),
       );
     } catch (e) {
