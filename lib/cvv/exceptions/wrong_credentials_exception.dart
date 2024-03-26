@@ -26,6 +26,6 @@ class WrongCredentialsExcpetion implements Exception {
 
   @override
   String toString() {
-    return "Wrong Credentials\nuid: $uid\npass: $pass";
+    return "Wrong Credentials. Try again.";
   }
 }
