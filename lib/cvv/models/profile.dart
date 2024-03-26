@@ -20,17 +20,18 @@
 import "package:classemista/cvv/models/auth_response_model.dart";
 
 class Profile {
-  final String? token;
+  final String token;
 
-  final String? firstName;
-  final String? lastName;
-  final String? ident;
+  final String firstName;
+  final String lastName;
+  final String ident;
 
-  Profile(
-      {required this.token,
-      required this.firstName,
-      required this.lastName,
-      required this.ident});
+  Profile({
+    required this.token,
+    required this.firstName,
+    required this.lastName,
+    required this.ident,
+  });
 
   Profile copyWith({
     String? token,
