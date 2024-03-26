@@ -56,11 +56,11 @@ class _LoginPageState extends State<LoginPage> {
       auth = await login(formData.email, formData.password);
     } on WrongCredentialsExcpetion catch (e) {
       loading = false;
-      _showDialog(e.toString());
+      _showDialog("Errore", e.toString());
       return;
     } on HttpRequestException catch (e) {
       loading = false;
-      _showDialog(e.toString());
+      _showDialog("Errore", e.toString());
       return;
     }
 
@@ -141,11 +141,12 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  void _showDialog(String message) {
+  void _showDialog(String title, String body) {
     showDialog<void>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text(message),
+        title: Text(title),
+        content: Text(body),
         actions: [
           TextButton(
             child: const Text("OK"),
