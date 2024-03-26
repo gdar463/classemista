@@ -17,15 +17,38 @@
 // <https://www.gnu.org/licenses/>.
 //
 
+import "package:classemista/cvv/features/auth.dart";
+import "package:classemista/cvv/models/profile.dart";
+import "package:classemista/widgets/main_page.dart";
 import "package:flutter/material.dart";
-import "widgets/login.dart";
+import "package:classemista/widgets/login.dart";
+import "package:flutter_secure_storage/flutter_secure_storage.dart";
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Widget start = const LoginPage();
+
+  const FlutterSecureStorage storage = FlutterSecureStorage();
+  if (await storage.containsKey(key: "uid") &&
+      await storage.containsKey(key: "pass")) {
+    try {
+      start = MainPage(
+        profile: Profile.fromAuth(
+          await refresh(),
+        ),
+      );
+    } catch (e) {
+      //ignored
+    }
+  }
+
+  runApp(MyApp(start: start));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({super.key, required this.start});
+
+  final Widget start;
 
   // This widget is the root of your application.
   @override
@@ -43,6 +66,7 @@ class MyApp extends StatelessWidget {
         fontFamily: "Poppins",
         colorSchemeSeed: const Color(0xFF502524),
       ),
+      home: start,
       debugShowCheckedModeBanner: false,
     );
   }
