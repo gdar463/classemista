@@ -57,20 +57,4 @@ class _TodayPageState extends State<TodayPage> {
       ],
     );
   }
-
-  void _showDialog(String title, String body) {
-    showDialog<void>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(title),
-        content: Text(body),
-        actions: [
-          TextButton(
-            child: const Text("OK"),
-            onPressed: () => Navigator.of(context).pop(),
-          ),
-        ],
-      ),
-    );
-  }
 }

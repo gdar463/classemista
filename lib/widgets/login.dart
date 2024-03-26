@@ -17,13 +17,12 @@
 // <https://www.gnu.org/licenses/>.
 //
 
-import "package:flutter/material.dart";
 import "package:classemista/cvv/features/auth.dart";
-import "package:classemista/cvv/exceptions/http_request_exception.dart";
-import "package:classemista/cvv/exceptions/wrong_credentials_exception.dart";
 import "package:classemista/cvv/models/auth_response_model.dart";
 import "package:classemista/cvv/models/profile_model.dart";
+import "package:classemista/utils/display.dart";
 import "package:classemista/widgets/main_page.dart";
+import "package:flutter/material.dart";
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -54,13 +53,12 @@ class _LoginPageState extends State<LoginPage> {
     AuthResponseModel? auth;
     try {
       auth = await login(formData.email, formData.password);
-    } on WrongCredentialsExcpetion catch (e) {
+    } catch (e) {
       loading = false;
-      _showDialog("Errore", e.toString());
-      return;
-    } on HttpRequestException catch (e) {
-      loading = false;
-      _showDialog("Errore", e.toString());
+      if (context.mounted) {
+        // ignore: use_build_context_synchronously
+        Display.showDialog("Errore", e.toString(), context);
+      }
       return;
     }
 
@@ -142,22 +140,6 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  void _showDialog(String title, String body) {
-    showDialog<void>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(title),
-        content: Text(body),
-        actions: [
-          TextButton(
-            child: const Text("OK"),
-            onPressed: () => Navigator.of(context).pop(),
-          ),
-        ],
       ),
     );
   }
