@@ -17,6 +17,8 @@
 // <https://www.gnu.org/licenses/>.
 //
 
+import "package:classemista/cvv/features/lessons.dart";
+import "package:classemista/cvv/models/lessons_response_model.dart";
 import "package:classemista/cvv/models/profile_model.dart";
 import "package:classemista/utils/date.dart";
 import "package:flutter/material.dart";
@@ -39,8 +41,30 @@ class _TodayContentsState extends State<TodayContents> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(
-        Date.dateTimeToString(widget.selectedDate),
+      child: FutureBuilder<LessonsResponseModel>(
+        future: getLessons(
+          widget.profile,
+          Date.dateTimeToString(widget.selectedDate),
+        ),
+        builder: (
+          BuildContext context,
+          AsyncSnapshot<LessonsResponseModel> snapshot,
+        ) {
+          if (snapshot.connectionState == ConnectionState.done &&
+              !snapshot.hasError) {
+            return Column(
+              children: [
+                ...snapshot.data!.lessons.map((e) {
+                  return Text(e.lessonDescription);
+                }),
+              ],
+            );
+          } else if (snapshot.hasError) {
+            return Text("Error: ${snapshot.error}");
+          } else {
+            return const CircularProgressIndicator();
+          }
+        },
       ),
     );
   }
