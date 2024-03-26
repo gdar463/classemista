@@ -44,7 +44,7 @@ Future<LessonsResponseModel> getLessons(
     ),
   );
 
-  http.Response response = await http.post(
+  http.Response response = await http.get(
     Uri.parse(url),
     headers: {
       "User-Agent": Base.userAgent,
