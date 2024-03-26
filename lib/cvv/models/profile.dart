@@ -55,5 +55,13 @@ class Profile {
       ident: auth.ident,
     );
   }
+
+  factory Profile.empty() {
+    return Profile(
+      token: "",
+      firstName: "",
+      lastName: "",
+      ident: "",
+    );
   }
 }
