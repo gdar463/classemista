@@ -46,11 +46,13 @@ class Profile {
     );
   }
 
-  static Profile fromAuth(AuthResponseModel auth) {
+  factory Profile.fromAuth(AuthResponseModel auth) {
     return Profile(
-        token: auth.token,
-        firstName: auth.firstName,
-        lastName: auth.lastName,
-        ident: auth.ident);
+      token: auth.token,
+      firstName: auth.firstName,
+      lastName: auth.lastName,
+      ident: auth.ident,
+    );
+  }
   }
 }
