@@ -17,7 +17,7 @@
 // <https://www.gnu.org/licenses/>.
 //
 
-import 'package:classemista/widgets/journal.dart';
+import 'package:classemista/widgets/today.dart';
 import 'package:flutter/material.dart';
 import 'package:classemista/cvv/models/profile_model.dart';
 
@@ -37,32 +37,53 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-        length: 4,
-        child: Scaffold(
-          appBar: AppBar(
-            title: Row(
-              children: [
-                const Icon(Icons.account_circle),
-                const SizedBox(width: 10),
-                Image(
-                  image: getThemeIcon(context),
-                  width: MediaQuery.of(context).size.width / 100 * 27.5,
-                ),
-              ],
+      length: 4,
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: const Color(0xFF501515),
+          title: Row(
+            children: [
+              const Icon(Icons.account_circle),
+              const SizedBox(width: 10),
+              Image(
+                image: getThemeIcon(context),
+                width: MediaQuery.of(context).size.width / 100 * 27.5,
+              ),
+            ],
+          ),
+        ),
+        body: TabBarView(
+          physics: const NeverScrollableScrollPhysics(),
+          children: [
+            TodayPage(profile: profile),
+            const Center(child: Text("book")),
+            const Center(child: Text("camera")),
+            const Center(child: Text("settings"))
+          ],
+        ),
+        bottomNavigationBar: Container(
+          decoration: const BoxDecoration(
+            color: Color(0xFF501515),
+            border: Border(
+              top: BorderSide(
+                width: 8,
+                color: Color(0xFF501515),
+              ),
+            ),
+            borderRadius: BorderRadius.vertical(
+              top: Radius.elliptical(20, 16),
             ),
           ),
-          body: const TabBarView(children: [
-            Center(child: Text("today")),
-            Center(child: Text("book")),
-            Center(child: Text("camera")),
-            Center(child: Text("settings"))
-          ]),
-          bottomNavigationBar: const TabBar(tabs: [
-            Tab(icon: Icon(Icons.today), text: "Today"),
-            Tab(icon: Icon(Icons.book_rounded), text: "Journal"),
-            Tab(icon: Icon(Icons.camera), text: "Camera"),
-            Tab(icon: Icon(Icons.settings), text: "Settings")
-          ]),
-        ));
+          child: const TabBar(
+            tabs: [
+              Tab(icon: Icon(Icons.today), text: "Today"),
+              Tab(icon: Icon(Icons.book_rounded), text: "Journal"),
+              Tab(icon: Icon(Icons.camera), text: "Camera"),
+              Tab(icon: Icon(Icons.settings), text: "Settings")
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
