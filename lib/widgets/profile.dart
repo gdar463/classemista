@@ -37,31 +37,49 @@ class _ProfileState extends State<ProfileWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text("First Name: ${widget.profile.firstName}"),
-        Text("Last Name: ${widget.profile.lastName}"),
-        Text("Ident: ${widget.profile.ident}"),
-        Text("API Ident: ${widget.profile.ident.substring(1)}"),
-        FilledButton(
-          onPressed: () {
-            setState(() {
-              pressed = !pressed;
-            });
-          },
-          child: const Text("Show API Token"),
+    TextStyle style = const TextStyle(fontSize: 16);
+
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF501515),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "First Name: ${widget.profile.firstName}",
+              style: style,
+            ),
+            Text("Last Name: ${widget.profile.lastName}", style: style),
+            Text("Ident: ${widget.profile.ident}", style: style),
+            Text("API Ident: ${widget.profile.ident.substring(1)}",
+                style: style),
+            FilledButton(
+              onPressed: () {
+                setState(() {
+                  pressed = !pressed;
+                });
+              },
+              child: Text("Show API Token", style: style),
+            ),
+            Builder(
+              builder: (BuildContext context) {
+                if (pressed) {
+                  return Text(
+                    "API Token: ${widget.profile.token}",
+                    style: const TextStyle(
+                      fontSize: 12,
+                    ),
+                  );
+                } else {
+                  return const SizedBox();
+                }
+              },
+            ),
+          ],
         ),
-        Builder(
-          builder: (BuildContext context) {
-            if (pressed) {
-              return Text("API Token: ${widget.profile.token}");
-            } else {
-              return const SizedBox();
-            }
-          },
-        ),
-      ],
+      ),
     );
   }
 }
