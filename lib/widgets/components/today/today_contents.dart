@@ -1,5 +1,5 @@
 //
-// journal_contents.dart
+// today_contents.dart
 //
 // Copyright (C) 2024 gdar463 <gdar463@gmail.com>
 //
