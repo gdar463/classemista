@@ -17,6 +17,7 @@
 // <https://www.gnu.org/licenses/>.
 //
 
+import 'package:classemista/widgets/profile.dart';
 import 'package:classemista/widgets/today.dart';
 import 'package:flutter/material.dart';
 import 'package:classemista/cvv/models/profile_model.dart';
@@ -45,7 +46,17 @@ class MainPage extends StatelessWidget {
           backgroundColor: const Color(0xFF501515),
           title: Row(
             children: [
-              const Icon(Icons.account_circle),
+              IconButton(
+                icon: const Icon(Icons.account_circle),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ProfileWidget(profile: profile),
+                    ),
+                  );
+                },
+              ),
               const SizedBox(width: 10),
               Image(
                 image: getThemeIcon(context),
