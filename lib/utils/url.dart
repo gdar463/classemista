@@ -19,7 +19,7 @@
 
 class Url {
   static String formatUrl(String url, Map<String, String> params) {
-    String output = "";
+    String output = url;
     params.forEach((key, value) {
       output = output.replaceAll(key, value);
     });
