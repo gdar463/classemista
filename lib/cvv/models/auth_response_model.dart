@@ -24,14 +24,19 @@ class AuthResponseModel {
   final String lastName;
   final String ident;
 
-  AuthResponseModel(
-      {required this.token,
-      required this.firstName,
-      required this.lastName,
-      required this.ident});
+  AuthResponseModel({
+    required this.token,
+    required this.firstName,
+    required this.lastName,
+    required this.ident,
+  });
 
-  AuthResponseModel copyWith(
-      {String? token, String? firstName, String? lastName, String? ident}) {
+  AuthResponseModel copyWith({
+    String? token,
+    String? firstName,
+    String? lastName,
+    String? ident,
+  }) {
     return AuthResponseModel(
         token: token ?? this.token,
         firstName: firstName ?? this.firstName,
