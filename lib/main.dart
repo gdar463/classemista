@@ -43,11 +43,11 @@ void main() async {
     }
   }
 
-  runApp(MyApp(start: start));
+  runApp(ClassemistaApp(start: start));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key, required this.start});
+class ClassemistaApp extends StatelessWidget {
+  const ClassemistaApp({super.key, required this.start});
 
   final Widget start;
 
