@@ -24,6 +24,7 @@ import "package:classemista/utils/display.dart";
 import "package:classemista/widgets/main_page.dart";
 import "package:flutter/material.dart";
 
+/// The widget for the LoginPage
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -33,6 +34,7 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
+/// A struct-like class for saving the inputs
 class FormData {
   String? email;
   String? password;
@@ -40,6 +42,7 @@ class FormData {
   FormData({this.email, this.password});
 }
 
+/// The state for the LoginPage
 class _LoginPageState extends State<LoginPage> {
   ProfileModel profile = ProfileModel.empty();
   FormData formData = FormData();
@@ -47,6 +50,7 @@ class _LoginPageState extends State<LoginPage> {
   bool loading = false;
   bool loggedIn = true;
 
+  /// Activated on pressing the Sign In button
   void onPressed() async {
     loading = true;
 

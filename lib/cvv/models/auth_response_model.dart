@@ -17,6 +17,7 @@
 // <https://www.gnu.org/licenses/>.
 //
 
+/// A class holding the AuthResponse
 class AuthResponseModel {
   final String token;
 
@@ -24,6 +25,7 @@ class AuthResponseModel {
   final String lastName;
   final String ident;
 
+  /// Constructor requiring all of the values
   AuthResponseModel({
     required this.token,
     required this.firstName,
@@ -31,6 +33,7 @@ class AuthResponseModel {
     required this.ident,
   });
 
+  /// Takes in some components of a auth response (as completly seperate parameters) and returns a AuthResponseModel having either the parameters or the values that the auth response already has (in this order)
   AuthResponseModel copyWith({
     String? token,
     String? firstName,
@@ -44,6 +47,7 @@ class AuthResponseModel {
         ident: ident ?? this.ident);
   }
 
+  /// Creates a AuthResponse from a json (formatted as Map<String, dynamic>)
   factory AuthResponseModel.fromJson(Map<String, dynamic> json) {
     return switch (json) {
       {

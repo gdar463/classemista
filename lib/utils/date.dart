@@ -18,12 +18,14 @@
 //
 
 class Date {
+  /// Takes in a date (as a DateTime) and returns the same date (as a String formatted as YYYYMMDD)
   static String dateTimeToString(DateTime date) {
     return date.year.toString() +
         date.month.toString().padLeft(2, "0") +
         date.day.toString();
   }
 
+  /// Takes in a month number (as a int) and returns the same month (as a String)
   static String monthToString(int month) {
     switch (month) {
       case 1:

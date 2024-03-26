@@ -17,6 +17,7 @@
 // <https://www.gnu.org/licenses/>.
 //
 
+/// An Exception indicating that the API returned something not planned for
 class HttpRequestException implements Exception {
   final String? url;
   final int? statusCode;

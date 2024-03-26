@@ -18,6 +18,7 @@
 //
 
 class Url {
+  /// Takes in a url (as a String) and a map made of patterns to search through the url replacing them with values (as Strings)
   static String formatUrl(String url, Map<String, String> params) {
     String output = url;
     params.forEach((key, value) {

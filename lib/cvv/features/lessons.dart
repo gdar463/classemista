@@ -27,7 +27,7 @@ import "package:classemista/cvv/models/profile_model.dart";
 import "package:classemista/utils/url.dart";
 import "package:http/http.dart" as http;
 
-/// Get the lessons for a certain date (format: YYYYMMDD)
+/// Takes in a profile (as ProfileModel) and a date (as a String formatted as YYYYMMDD) and retrieves for the Classeviva API the lessons for that day
 Future<LessonsResponseModel> getLessons(
     ProfileModel profile, String date) async {
   String url = Url.formatUrl(

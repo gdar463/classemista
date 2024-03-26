@@ -17,6 +17,7 @@
 // <https://www.gnu.org/licenses/>.
 //
 
+/// An Exception indicating that the credentials entered are wrong
 class WrongCredentialsExcpetion implements Exception {
   final String? uid;
   final String? pass;

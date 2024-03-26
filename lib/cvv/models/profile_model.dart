@@ -19,6 +19,7 @@
 
 import "package:classemista/cvv/models/auth_response_model.dart";
 
+/// A class holding a Classeviva profile
 class ProfileModel {
   final String token;
 
@@ -26,6 +27,7 @@ class ProfileModel {
   final String lastName;
   final String ident;
 
+  /// Constructor requiring all of the values
   ProfileModel({
     required this.token,
     required this.firstName,
@@ -33,6 +35,7 @@ class ProfileModel {
     required this.ident,
   });
 
+  /// Takes in some components of a profile (as completly seperate parameters) and returns a Profile having either the parameters or the values that the profile already has (in this order)
   ProfileModel copyWith({
     String? token,
     String? firstName,
@@ -47,6 +50,7 @@ class ProfileModel {
     );
   }
 
+  /// Creates a Profile from a AuthResponseModel
   factory ProfileModel.fromAuth(AuthResponseModel auth) {
     return ProfileModel(
       token: auth.token,
@@ -56,6 +60,7 @@ class ProfileModel {
     );
   }
 
+  /// Creates a empty Profile
   factory ProfileModel.empty() {
     return ProfileModel(
       token: "",

@@ -20,6 +20,7 @@
 import 'package:flutter/material.dart' as flutter;
 
 class Display {
+  /// A wrapper for showDialog, with only adding a OK button
   static void showDialog(
     String title,
     String body,

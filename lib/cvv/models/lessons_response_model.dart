@@ -17,13 +17,16 @@
 // <https://www.gnu.org/licenses/>.
 //
 
+/// A class holding the list of Lesson for a day
 class LessonsResponseModel {
   final List<Lesson> lessons;
 
+  /// Constructor requiring the list of lessons
   LessonsResponseModel({
     required this.lessons,
   });
 
+  /// Creates a LessonsResponse from a json (formatted as Map<String, dynamic>)
   factory LessonsResponseModel.fromJson(Map<String, dynamic> json) {
     List<Lesson> lessons = [];
     for (final lesson in json["lessons"]) {
@@ -40,6 +43,7 @@ class LessonsResponseModel {
   }
 }
 
+/// A class holding a Classeviva lesson
 class Lesson {
   final int hour;
   final int duration;
@@ -49,6 +53,7 @@ class Lesson {
   final String lessonType;
   final String lessonDescription;
 
+  /// Constructor requiring all of the values
   Lesson({
     required this.hour,
     required this.duration,

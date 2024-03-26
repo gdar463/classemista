@@ -29,13 +29,17 @@ import "package:flutter/material.dart";
 import "package:flutter_secure_storage/flutter_secure_storage.dart";
 import "package:http/http.dart" as http;
 
+/// The url for logging in the Classeviva API
 const String url = Base.baseUrl + Endpoints.loginPoint;
+
+/// The headers needed for making the requests
 const Map<String, String> headers = {
   "User-Agent": Base.userAgent,
   Base.devKey: Base.devKeyValue,
   "Content-Type": "application/json"
 };
 
+/// Takes in a username and a password (as Strings) and returns a Future holding a AuthResponseModel
 Future<AuthResponseModel> login(String? username, String? password) async {
   var response = await http.post(Uri.parse(url),
       body: utf8.encode(jsonEncode({"uid": username, "pass": password})),
@@ -57,6 +61,7 @@ Future<AuthResponseModel> login(String? username, String? password) async {
       jsonDecode(response.body) as Map<String, dynamic>);
 }
 
+/// Takes in a context (as a BuildContext) and replaces the current widget with MainPage holding the Profile obtained from the secure storage saved credentials
 void refresh(BuildContext context) async {
   const FlutterSecureStorage storage = FlutterSecureStorage();
   String? username = await storage.read(key: "uid");

@@ -17,4 +17,5 @@
 // <https://www.gnu.org/licenses/>.
 //
 
+/// An Exception indicating a 401 response from the API
 class UnathorizedException implements Exception {}

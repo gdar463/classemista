@@ -23,6 +23,7 @@ import "package:classemista/cvv/models/profile_model.dart";
 import "package:classemista/utils/date.dart";
 import "package:flutter/material.dart";
 
+/// The widget for the contents of TodayPage
 class TodayContents extends StatefulWidget {
   const TodayContents({
     super.key,
@@ -37,6 +38,7 @@ class TodayContents extends StatefulWidget {
   State<TodayContents> createState() => _TodayContentsState();
 }
 
+/// The state for the contents of TodayPage
 class _TodayContentsState extends State<TodayContents> {
   @override
   Widget build(BuildContext context) {

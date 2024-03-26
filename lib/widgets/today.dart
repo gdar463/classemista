@@ -22,6 +22,7 @@ import "package:classemista/widgets/components/today/date_selector.dart";
 import "package:classemista/widgets/components/today/today_contents.dart";
 import "package:flutter/material.dart";
 
+/// The widget for the TodayPage
 class TodayPage extends StatefulWidget {
   const TodayPage({super.key, required this.profile});
 
@@ -31,9 +32,11 @@ class TodayPage extends StatefulWidget {
   State<StatefulWidget> createState() => _TodayPageState();
 }
 
+/// The state for the TodayPage
 class _TodayPageState extends State<TodayPage> {
   DateTime selectedDate = DateTime.utc(2024, DateTime.march, 22);
 
+  /// Callback for DateSelector to pass the date to TodayContents
   void dateCallback(DateTime date) {
     setState(() {
       selectedDate = date;

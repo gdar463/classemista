@@ -17,6 +17,7 @@
 // <https://www.gnu.org/licenses/>.
 //
 
+/// A class holding all the constants for contacting Classeviva API
 class Base {
   // Base API URL
   static const String baseUrl = "https://web.spaggiari.eu/rest/v1";
@@ -32,6 +33,7 @@ class Base {
   static const String tokenKey = "Z-Auth-Token";
 }
 
+/// A class holding all the endpoints for Classeviva API with all params formatted as {<name>}
 class Endpoints {
   static const String loginPoint = "/auth/login";
   static const String lessonsPoint = "/students/{ident}/lessons/{day}";

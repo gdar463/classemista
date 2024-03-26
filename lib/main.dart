@@ -24,6 +24,7 @@ import "package:flutter/material.dart";
 import "package:classemista/widgets/login.dart";
 import "package:flutter_secure_storage/flutter_secure_storage.dart";
 
+/// Entrypoint
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Widget start = const LoginPage();
@@ -46,6 +47,7 @@ void main() async {
   runApp(ClassemistaApp(start: start));
 }
 
+/// Flutter Entrypoint
 class ClassemistaApp extends StatelessWidget {
   const ClassemistaApp({super.key, required this.start});
 
