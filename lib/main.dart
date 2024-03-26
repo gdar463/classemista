@@ -33,9 +33,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Magico MOndo DI ZMAPPA",
       themeMode: ThemeMode.system,
-      theme: ThemeData(brightness: Brightness.light),
-      darkTheme: ThemeData(brightness: Brightness.dark),
-      home: const LoginPage(),
+      theme: ThemeData(
+        brightness: Brightness.light,
+        fontFamily: "Poppins",
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        fontFamily: "Poppins",
+      ),
       debugShowCheckedModeBanner: false,
     );
   }
