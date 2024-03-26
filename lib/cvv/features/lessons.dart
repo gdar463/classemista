@@ -23,12 +23,13 @@ import "package:classemista/cvv/base.dart";
 import "package:classemista/cvv/exceptions/http_request_exception.dart";
 import "package:classemista/cvv/exceptions/unathorized_exception.dart";
 import "package:classemista/cvv/models/lessons_response_model.dart";
-import "package:classemista/cvv/models/profile.dart";
+import "package:classemista/cvv/models/profile_model.dart";
 import "package:classemista/utils/url.dart";
 import "package:http/http.dart" as http;
 
 /// Get the lessons for a certain date (format: YYYYMMDD)
-Future<LessonsResponseModel> getLessons(Profile profile, String date) async {
+Future<LessonsResponseModel> getLessons(
+    ProfileModel profile, String date) async {
   String url = Url.formatUrl(
     Base.baseUrl + Endpoints.lessonsPoint,
     Map.fromIterables(

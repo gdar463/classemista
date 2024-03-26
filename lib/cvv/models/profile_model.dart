@@ -19,27 +19,27 @@
 
 import "package:classemista/cvv/models/auth_response_model.dart";
 
-class Profile {
+class ProfileModel {
   final String token;
 
   final String firstName;
   final String lastName;
   final String ident;
 
-  Profile({
+  ProfileModel({
     required this.token,
     required this.firstName,
     required this.lastName,
     required this.ident,
   });
 
-  Profile copyWith({
+  ProfileModel copyWith({
     String? token,
     String? firstName,
     String? lastName,
     String? ident,
   }) {
-    return Profile(
+    return ProfileModel(
       token: token ?? this.token,
       firstName: firstName ?? this.firstName,
       lastName: lastName ?? this.lastName,
@@ -47,8 +47,8 @@ class Profile {
     );
   }
 
-  factory Profile.fromAuth(AuthResponseModel auth) {
-    return Profile(
+  factory ProfileModel.fromAuth(AuthResponseModel auth) {
+    return ProfileModel(
       token: auth.token,
       firstName: auth.firstName,
       lastName: auth.lastName,
@@ -56,8 +56,8 @@ class Profile {
     );
   }
 
-  factory Profile.empty() {
-    return Profile(
+  factory ProfileModel.empty() {
+    return ProfileModel(
       token: "",
       firstName: "",
       lastName: "",

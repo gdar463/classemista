@@ -18,7 +18,7 @@
 //
 
 import "package:classemista/cvv/features/auth.dart";
-import "package:classemista/cvv/models/profile.dart";
+import "package:classemista/cvv/models/profile_model.dart";
 import "package:classemista/widgets/main_page.dart";
 import "package:flutter/material.dart";
 import "package:classemista/widgets/login.dart";
@@ -33,7 +33,7 @@ void main() async {
       await storage.containsKey(key: "pass")) {
     try {
       start = MainPage(
-        profile: Profile.fromAuth(
+        profile: ProfileModel.fromAuth(
           await refresh(),
         ),
       );

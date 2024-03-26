@@ -22,7 +22,7 @@ import "package:classemista/cvv/features/auth.dart";
 import "package:classemista/cvv/exceptions/http_request_exception.dart";
 import "package:classemista/cvv/exceptions/wrong_credentials_exception.dart";
 import "package:classemista/cvv/models/auth_response_model.dart";
-import "package:classemista/cvv/models/profile.dart";
+import "package:classemista/cvv/models/profile_model.dart";
 import "package:classemista/widgets/main_page.dart";
 
 class LoginPage extends StatefulWidget {
@@ -42,7 +42,7 @@ class FormData {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  Profile? profile;
+  ProfileModel profile = ProfileModel.empty();
   FormData formData = FormData();
 
   bool loading = false;
@@ -64,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
       return;
     }
 
-    profile = Profile.fromAuth(auth);
+    profile = ProfileModel.fromAuth(auth);
 
     loading = false;
     loggedIn = true;

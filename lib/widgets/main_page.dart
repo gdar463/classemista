@@ -19,12 +19,12 @@
 
 import 'package:classemista/widgets/journal.dart';
 import 'package:flutter/material.dart';
-import 'package:classemista/cvv/models/profile.dart';
+import 'package:classemista/cvv/models/profile_model.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key, required this.profile});
 
-  final Profile? profile;
+  final ProfileModel profile;
 
   ImageProvider<Object> getThemeIcon(BuildContext context) {
     String theme = "light";
