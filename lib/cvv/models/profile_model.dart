@@ -1,5 +1,5 @@
 //
-// profile.dart
+// profile_model.dart
 //
 // Copyright (C) 2024 gdar463 <gdar463@gmail.com>
 //
