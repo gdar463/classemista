@@ -18,7 +18,9 @@
 //
 
 import 'package:classemista/cvv/models/profile_model.dart';
+import 'package:classemista/widgets/login.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class ProfileWidget extends StatefulWidget {
   const ProfileWidget({
@@ -42,6 +44,25 @@ class _ProfileState extends State<ProfileWidget> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF501515),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            IconButton(
+              onPressed: () {
+                FlutterSecureStorage storage = const FlutterSecureStorage();
+                storage.delete(key: "uid");
+                storage.delete(key: "pass");
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const LoginPage(),
+                  ),
+                );
+              },
+              icon: const Icon(Icons.logout),
+            ),
+          ],
+        ),
       ),
       body: Center(
         child: Column(
