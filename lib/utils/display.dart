@@ -21,7 +21,10 @@ import 'package:flutter/material.dart' as flutter;
 
 class Display {
   static void showDialog(
-      String title, String body, flutter.BuildContext context) {
+    String title,
+    String body,
+    flutter.BuildContext context,
+  ) {
     flutter.showDialog<void>(
       context: context,
       builder: (context) => flutter.AlertDialog(
