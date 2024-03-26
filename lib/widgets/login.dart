@@ -88,53 +88,58 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Form(
-                child: Scrollbar(
-                    child: SingleChildScrollView(
-                        padding: const EdgeInsets.all(16),
-                        child: Column(children: [
-                          ...[
-                            TextFormField(
-                              autofocus: true,
-                              textInputAction: TextInputAction.next,
-                              decoration: const InputDecoration(
-                                  filled: true,
-                                  hintText: "Username or Email",
-                                  labelText: "Username"),
-                              onChanged: (value) {
-                                formData.email = value;
-                              },
-                            ),
-                            TextFormField(
-                              decoration: const InputDecoration(
-                                  filled: true, labelText: "Password"),
-                              obscureText: true,
-                              onChanged: (value) {
-                                formData.password = value;
-                              },
-                            ),
-                            FilledButton(
-                              child: Builder(
-                                builder: (context) {
-                                  if (loading) {
-                                    return const CircularProgressIndicator();
-                                  }
+              child: Scrollbar(
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    children: [
+                      ...[
+                        TextFormField(
+                          autofocus: true,
+                          textInputAction: TextInputAction.next,
+                          decoration: const InputDecoration(
+                              filled: true,
+                              hintText: "Username or Email",
+                              labelText: "Username"),
+                          onChanged: (value) {
+                            formData.email = value;
+                          },
+                        ),
+                        TextFormField(
+                          decoration: const InputDecoration(
+                              filled: true, labelText: "Password"),
+                          obscureText: true,
+                          onChanged: (value) {
+                            formData.password = value;
+                          },
+                        ),
+                        FilledButton(
+                          child: Builder(
+                            builder: (context) {
+                              if (loading) {
+                                return const CircularProgressIndicator();
+                              }
 
-                                  return const Text("Sign In");
-                                },
-                              ),
-                              onPressed: () async {
-                                onPressed();
-                              },
-                            )
-                          ].expand(
-                            (widget) => [
-                              widget,
-                              const SizedBox(
-                                height: 24,
-                              )
-                            ],
+                              return const Text("Sign In");
+                            },
+                          ),
+                          onPressed: () async {
+                            onPressed();
+                          },
+                        )
+                      ].expand(
+                        (widget) => [
+                          widget,
+                          const SizedBox(
+                            height: 24,
                           )
-                        ]))))
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
