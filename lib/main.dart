@@ -36,9 +36,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.light,
         fontFamily: "Poppins",
+        colorSchemeSeed: const Color(0xFF501515),
+      ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
         fontFamily: "Poppins",
+        colorSchemeSeed: const Color(0xFF502524),
       ),
       debugShowCheckedModeBanner: false,
     );
