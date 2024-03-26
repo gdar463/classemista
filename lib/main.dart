@@ -56,7 +56,7 @@ class ClassemistaApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Magico MOndo DI ZMAPPA",
+      title: "Classemista",
       themeMode: ThemeMode.system,
       theme: ThemeData(
         brightness: Brightness.light,

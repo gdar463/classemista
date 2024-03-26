@@ -28,7 +28,7 @@ import "package:flutter/material.dart";
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
-  final String title = "THE MAGICAL WORLD OF ZAMPA";
+  final String title = "Login";
 
   @override
   State<LoginPage> createState() => _LoginPageState();
