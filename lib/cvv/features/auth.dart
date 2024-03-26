@@ -67,8 +67,14 @@ Future<AuthResponseModel> refresh() async {
     case 200:
       break;
     case 422:
+      const FlutterSecureStorage storage = FlutterSecureStorage();
+      await storage.delete(key: "uid");
+      await storage.delete(key: "pass");
       throw WrongCredentialsExcpetion(uid: username, pass: password);
     default:
+      const FlutterSecureStorage storage = FlutterSecureStorage();
+      await storage.delete(key: "uid");
+      await storage.delete(key: "pass");
       throw HttpRequestException(url: url, statusCode: response.statusCode);
   }
 
