@@ -82,7 +82,14 @@ class _ProfileState extends State<ProfileWidget> {
                   pressed = !pressed;
                 });
               },
-              child: Text("Show API Token", style: style),
+              child: Builder(
+                builder: (BuildContext context) {
+                  if (pressed) {
+                    return Text("Hide API Token", style: style);
+                  }
+                  return Text("Show API Token", style: style);
+                },
+              ),
             ),
             Builder(
               builder: (BuildContext context) {
