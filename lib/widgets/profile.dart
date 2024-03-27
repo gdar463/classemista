@@ -52,6 +52,7 @@ class _ProfileState extends State<ProfileWidget> {
                 FlutterSecureStorage storage = const FlutterSecureStorage();
                 storage.delete(key: "uid");
                 storage.delete(key: "pass");
+                Navigator.of(context).pop();
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
