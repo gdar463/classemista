@@ -152,7 +152,7 @@ class _LessonsWidgetState extends State<LessonsWidget> {
               ],
             );
           }
-          return const SizedBox();
+          return Container();
         } else if (snapshot.hasError) {
           return Text("Error: ${snapshot.error}");
         } else {
