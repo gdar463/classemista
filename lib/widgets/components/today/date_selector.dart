@@ -62,14 +62,14 @@ class _DateSelectorState extends State<DateSelector> {
 
   /// A function executed on a change of state in the DateSelector
   void setup() {
-    for (var i = 0; i < 7; i++) {
-      dates[i] = widget.startDate.subtract(Duration(days: -i + 3));
-    }
+    selectedDate ??= widget.startDate;
   }
 
   @override
   Widget build(BuildContext context) {
-    selectedDate ??= widget.startDate;
+    for (var i = 0; i < 7; i++) {
+      dates[i] = selectedDate!.subtract(Duration(days: -i + 3));
+    }
     return Container(
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.all(8),
