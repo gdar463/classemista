@@ -24,9 +24,14 @@ import "package:flutter/material.dart";
 
 /// The widget for the TodayPage
 class TodayPage extends StatefulWidget {
-  const TodayPage({super.key, required this.profile});
+  const TodayPage({
+    super.key,
+    required this.profile,
+    required this.monthCallback,
+  });
 
   final ProfileModel profile;
+  final MonthCallback monthCallback;
 
   @override
   State<StatefulWidget> createState() => _TodayPageState();
@@ -43,13 +48,18 @@ class _TodayPageState extends State<TodayPage> {
     });
   }
 
+  void monthCallback(int month) {
+    widget.monthCallback(month);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         DateSelector(
           startDate: DateTime.now(),
-          callback: dateCallback,
+          dateCallback: dateCallback,
+          monthCallback: monthCallback,
         ),
         Expanded(
           child: TodayContents(

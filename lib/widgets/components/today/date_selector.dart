@@ -22,14 +22,20 @@ import "package:flutter/material.dart";
 
 /// A type definition needed to define the parameters of the widget
 typedef DateCallback = void Function(DateTime selectedDate);
+typedef MonthCallback = void Function(int month);
 
 /// The widget for the DateSelector on TodayPage
 class DateSelector extends StatefulWidget {
-  const DateSelector(
-      {super.key, required this.startDate, required this.callback});
+  const DateSelector({
+    super.key,
+    required this.startDate,
+    required this.dateCallback,
+    required this.monthCallback,
+  });
 
   final DateTime startDate;
-  final DateCallback callback;
+  final DateCallback dateCallback;
+  final MonthCallback monthCallback;
 
   @override
   State<DateSelector> createState() => _DateSelectorState();
@@ -90,7 +96,8 @@ class _DateSelectorState extends State<DateSelector> {
                 setState(() {
                   selectedDate = e;
                 });
-                widget.callback(e);
+                widget.dateCallback(e);
+                widget.monthCallback(e.month);
               },
               child: Column(
                 children: [

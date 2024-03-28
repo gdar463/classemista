@@ -44,6 +44,12 @@ class _MainState extends State<MainPage> {
     return AssetImage("assets/images/classemista-$theme.png");
   }
 
+  void monthCallback(int month) {
+    setState(() {
+      selectedMonth = month;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -74,7 +80,10 @@ class _MainState extends State<MainPage> {
         body: TabBarView(
           physics: const NeverScrollableScrollPhysics(),
           children: [
-            TodayPage(profile: profile),
+            TodayPage(
+              profile: widget.profile,
+              monthCallback: monthCallback,
+            ),
             const Center(child: Text("book")),
             const Center(child: Text("photo")),
             const Center(child: Text("settings"))
