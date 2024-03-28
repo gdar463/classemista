@@ -17,10 +17,10 @@
 // <https://www.gnu.org/licenses/>.
 //
 
-import 'package:classemista/cvv/models/profile_model.dart';
-import 'package:classemista/widgets/login.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import "package:classemista/cvv/models/profile_model.dart";
+import "package:classemista/widgets/login.dart";
+import "package:flutter/material.dart";
+import "package:flutter_secure_storage/flutter_secure_storage.dart";
 
 class ProfileWidget extends StatefulWidget {
   const ProfileWidget({

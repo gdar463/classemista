@@ -17,7 +17,7 @@
 // <https://www.gnu.org/licenses/>.
 //
 
-import 'package:flutter/material.dart' as flutter;
+import "package:flutter/material.dart" as flutter;
 
 class Display {
   /// A wrapper for showDialog, with only adding a OK button
