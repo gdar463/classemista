@@ -69,7 +69,7 @@ class MainPage extends StatelessWidget {
           children: [
             TodayPage(profile: profile),
             const Center(child: Text("book")),
-            const Center(child: Text("camera")),
+            const Center(child: Text("photo")),
             const Center(child: Text("settings"))
           ],
         ),
@@ -90,7 +90,7 @@ class MainPage extends StatelessWidget {
             tabs: [
               Tab(icon: Icon(Icons.today), text: "Today"),
               Tab(icon: Icon(Icons.book_rounded), text: "Journal"),
-              Tab(icon: Icon(Icons.camera), text: "Camera"),
+              Tab(icon: Icon(Icons.image), text: "Photos"),
               Tab(icon: Icon(Icons.settings), text: "Settings")
             ],
           ),
