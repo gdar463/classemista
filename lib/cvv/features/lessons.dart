@@ -67,5 +67,5 @@ Future<LessonsResponseModel> getLessons(
 
   return LessonsResponseModel.fromJson(
     jsonDecode(response.body) as Map<String, dynamic>,
-  );
+  ).sort();
 }
