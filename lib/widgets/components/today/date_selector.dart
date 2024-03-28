@@ -37,6 +37,7 @@ class DateSelector extends StatefulWidget {
 
 /// The state for the DateSelector on TodayPage
 class _DateSelectorState extends State<DateSelector> {
+  DateTime? selectedDate;
   List<DateTime> dates = [
     DateTime.now(),
     DateTime.now(),
@@ -62,6 +63,7 @@ class _DateSelectorState extends State<DateSelector> {
 
   @override
   Widget build(BuildContext context) {
+    selectedDate ??= widget.startDate;
     return Container(
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.all(8),
@@ -81,34 +83,57 @@ class _DateSelectorState extends State<DateSelector> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          const SizedBox(width: 2),
           ...dates.map(
             (e) => InkWell(
               onTap: () {
+                setState(() {
+                  selectedDate = e;
+                });
                 widget.callback(e);
               },
               child: Column(
                 children: [
-                  Text(
-                    e.day.toString(),
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.grey[400],
-                      fontWeight: FontWeight.w600,
-                      fontSize: 28,
-                    ),
-                  ),
+                  Builder(builder: (BuildContext context) {
+                    Color containerColor = const Color(0x00ffffff);
+                    Color textColor = Colors.grey[400] as Color;
+                    if (selectedDate == e) {
+                      containerColor = Colors.white;
+                      textColor = const Color(0xff460000);
+                    }
+                    return Container(
+                      width: 45,
+                      height: 45,
+                      decoration: BoxDecoration(
+                        color: containerColor,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Center(
+                        child: Text(
+                          e.day.toString(),
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: textColor,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 24,
+                          ),
+                        ),
+                      ),
+                    );
+                  }),
                   Text(
                     Date.monthToString(e.month),
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.grey[400],
-                      fontSize: 18,
+                      fontSize: 16,
                     ),
                   )
                 ],
               ),
             ),
           ),
+          const SizedBox(width: 2),
         ],
       ),
     );
