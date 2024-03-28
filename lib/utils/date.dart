@@ -22,7 +22,7 @@ class Date {
   static String dateTimeToString(DateTime date) {
     return date.year.toString() +
         date.month.toString().padLeft(2, "0") +
-        date.day.toString();
+        date.day.toString().padLeft(2, "0");
   }
 
   /// Takes in a month number (as a int) and returns the same month abbreviated (as a String)
