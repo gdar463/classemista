@@ -57,7 +57,6 @@ class MainPage extends StatelessWidget {
                   );
                 },
               ),
-              const SizedBox(width: 10),
               Image(
                 image: getThemeIcon(context),
                 width: MediaQuery.of(context).size.width / 100 * 27.5,
