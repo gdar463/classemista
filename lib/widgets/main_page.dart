@@ -23,11 +23,16 @@ import "package:flutter/material.dart";
 import "package:classemista/cvv/models/profile_model.dart";
 
 /// The widget for the MainPage
-class MainPage extends StatelessWidget {
+class MainPage extends StatefulWidget {
   const MainPage({super.key, required this.profile});
 
   final ProfileModel profile;
 
+  @override
+  State<MainPage> createState() => _MainState();
+}
+
+class _MainState extends State<MainPage> {
   /// Gets the main icon depending on the theme (more exactly the brightness)
   ImageProvider<Object> getThemeIcon(BuildContext context) {
     String theme = "light";
