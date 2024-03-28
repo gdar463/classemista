@@ -17,6 +17,7 @@
 // <https://www.gnu.org/licenses/>.
 //
 
+import "package:classemista/utils/date.dart";
 import "package:classemista/widgets/profile.dart";
 import "package:classemista/widgets/components/today.dart";
 import "package:flutter/material.dart";
@@ -33,6 +34,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainState extends State<MainPage> {
+  int selectedMonth = DateTime.now().month;
   int tabIndex = 0;
 
   /// Gets the main icon depending on the theme (more exactly the brightness)
@@ -65,7 +67,8 @@ class _MainState extends State<MainPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ProfileWidget(profile: profile),
+                      builder: (context) =>
+                          ProfileWidget(profile: widget.profile),
                     ),
                   );
                 },
@@ -73,6 +76,27 @@ class _MainState extends State<MainPage> {
               Image(
                 image: getThemeIcon(context),
                 width: MediaQuery.of(context).size.width / 100 * 27.5,
+              ),
+              Builder(
+                builder: (BuildContext context) {
+                  if (tabIndex == 0) {
+                    return Expanded(
+                      child: Align(
+                        alignment: Alignment.bottomRight,
+                        child: Text(
+                          Date.monthToString(selectedMonth),
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                            fontStyle: FontStyle.italic,
+                          ),
+                          textAlign: TextAlign.left,
+                        ),
+                      ),
+                    );
+                  }
+                  return const SizedBox();
+                },
               ),
             ],
           ),
