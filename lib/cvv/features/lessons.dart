@@ -29,7 +29,9 @@ import "package:http/http.dart" as http;
 
 /// Takes in a profile (as ProfileModel) and a date (as a String formatted as YYYYMMDD) and retrieves for the Classeviva API the lessons for that day
 Future<LessonsResponseModel> getLessons(
-    ProfileModel profile, String date) async {
+  ProfileModel profile,
+  String date,
+) async {
   String url = Url.formatUrl(
     Base.baseUrl + Endpoints.lessonsPoint,
     Map.fromIterables(
