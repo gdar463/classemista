@@ -33,6 +33,8 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainState extends State<MainPage> {
+  int tabIndex = 0;
+
   /// Gets the main icon depending on the theme (more exactly the brightness)
   ImageProvider<Object> getThemeIcon(BuildContext context) {
     String theme = "light";
@@ -91,8 +93,13 @@ class _MainState extends State<MainPage> {
               top: Radius.elliptical(20, 16),
             ),
           ),
-          child: const TabBar(
-            tabs: [
+          child: TabBar(
+            onTap: (index) {
+              setState(() {
+                tabIndex = index;
+              });
+            },
+            tabs: const [
               Tab(icon: Icon(Icons.today), text: "Today"),
               Tab(icon: Icon(Icons.book_rounded), text: "Journal"),
               Tab(icon: Icon(Icons.image), text: "Photos"),
