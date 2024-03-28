@@ -34,7 +34,7 @@ class TodayPage extends StatefulWidget {
 
 /// The state for the TodayPage
 class _TodayPageState extends State<TodayPage> {
-  DateTime selectedDate = DateTime.utc(2024, DateTime.march, 22);
+  DateTime selectedDate = DateTime.now();
 
   /// Callback for DateSelector to pass the date to TodayContents
   void dateCallback(DateTime date) {
@@ -48,7 +48,7 @@ class _TodayPageState extends State<TodayPage> {
     return Column(
       children: [
         DateSelector(
-          startDate: DateTime.utc(2024, DateTime.march, 22),
+          startDate: DateTime.now(),
           callback: dateCallback,
         ),
         Expanded(
