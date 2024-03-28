@@ -122,7 +122,7 @@ class _DateSelectorState extends State<DateSelector> {
                     );
                   }),
                   Text(
-                    Date.monthToString(e.month),
+                    Date.monthToAbrvString(e.month),
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.grey[400],

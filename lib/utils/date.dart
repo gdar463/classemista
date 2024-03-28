@@ -25,8 +25,8 @@ class Date {
         date.day.toString();
   }
 
-  /// Takes in a month number (as a int) and returns the same month (as a String)
-  static String monthToString(int month) {
+  /// Takes in a month number (as a int) and returns the same month abbreviated (as a String)
+  static String monthToAbrvString(int month) {
     switch (month) {
       case 1:
         return "Jan";
@@ -54,5 +54,36 @@ class Date {
         return "Dec";
     }
     return "Jan";
+  }
+
+  /// Takes in a month number (as a int) and returns the same month (as a String)
+  static String monthToString(int month) {
+    switch (month) {
+      case 1:
+        return "January";
+      case 2:
+        return "Febraury";
+      case 3:
+        return "March";
+      case 4:
+        return "April";
+      case 5:
+        return "May";
+      case 6:
+        return "June";
+      case 7:
+        return "July";
+      case 8:
+        return "August";
+      case 9:
+        return "September";
+      case 10:
+        return "October";
+      case 11:
+        return "November";
+      case 12:
+        return "December";
+    }
+    return "January";
   }
 }
