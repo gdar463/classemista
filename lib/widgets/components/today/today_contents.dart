@@ -40,8 +40,9 @@ class TodayContents extends StatefulWidget {
 class _TodayContentsState extends State<TodayContents> {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return SingleChildScrollView(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           LessonsWidget(
             profile: widget.profile,
