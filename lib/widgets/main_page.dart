@@ -18,7 +18,7 @@
 //
 
 import 'package:classemista/widgets/profile.dart';
-import 'package:classemista/widgets/today.dart';
+import 'package:classemista/widgets/components/today.dart';
 import 'package:flutter/material.dart';
 import 'package:classemista/cvv/models/profile_model.dart';
 
